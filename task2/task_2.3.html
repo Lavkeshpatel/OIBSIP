@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .main {
+            height: 100vh;
+            width: 100%;
+            background: #0160be;
+        }
+
+        .A {
+            display: flex;
+            padding-top: 50px;
+        }
+
+        .A1 {
+            height: 400px;
+            width: 400px;
+            background: #fff;
+            border-radius: 20px;
+            margin-left: 50px;
+        }
+
+        .AA {
+            height: 40px;
+            width: 300px;
+            margin-left: 50px;
+            margin-top: 25px;
+            border-radius: 8px;
+            font-size: 18px;
+        }
+
+        .aa {
+            height: 200px;
+            width: 300px;
+            margin-left: 50px;
+            margin-top: 25px;
+            border-radius: 8px;
+            font-size: 18px;
+            text-align: left;
+        }
+
+        .A2 {
+            height: 40px;
+            width: 300px;
+            margin-left: 50px;
+            margin-top: 25px;
+            border-radius: 8px;
+            background: #0160be;
+        }
+
+        .S {
+            height: 400px;
+            width: 1000px;
+            margin-left: 50px;
+            background: #0160be;
+        }
+
+        .S1 {
+            font-size: 18px;
+            color: #fff;
+        }
+
+        .F {
+            height: 150px;
+            width: 800px;
+            margin-left: 100px;
+            background: #fff;
+            color: black;
+            margin-top: 10px;
+            border-radius: 30px;
+            font-size: 18px;
+            font-family: sans-serif;
+            text-align: left;
+        }
+
+        .close {
+            float: right;
+            font-size: 50px;
+            color: red;
+            font-weight: bold;
+            cursor: pointer;
+            padding-right: 50px;
+        }
+        li{
+            background-color: aliceblue;
+            border: 2px solid rebeccapurple;
+            font-size: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="main">
+        <div class="A">
+            <div class="A1">
+                <form>
+                    <input type="text" placeholder="Title" class="AA" id="Input1" required="please fill all"
+                        name="u_name"><br><br>
+                    <input type="text" placeholder="Description" id="Input2" required="please fill all" class="aa"><br>
+                    <button class="A2" onclick="newElement()">SAVE</button>
+                </form>
+            </div>
+
+            <!-- second div - table -->
+            <div class="S">
+                <table>
+                    <tr>
+                        <th style="font-size: 25px; color: #fff;"> Title &nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        </th>
+                        <th style="font-size: 25px; color: #fff;"> Description&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      
+                        </th>
+                        <th style="font-size: 25px; color: #fff; margin-left: 700px;">Delete</th>
+                       
+                    </tr>
+                </table><br>
+                <hr style="color: #fff;">
+                <br><br>
+                <div style="margin-left: 50px;">
+                    <ol id="myUL1"></ol>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div>
+        <h1 class="ankit"></h1>
+    </div>
+    <script>
+        // Create a "close" button and append it to each list item
+        function attachCloseEventListener() {
+            var close = document.getElementsByClassName("close");
+            var i;
+            for (i = 0; i < close.length; i++) {
+                close[i].onclick = function () {
+                    var div = this.parentElement;
+                    div.style.display = "none";
+                }
+            }
+        }
+
+        // Click on a close button to hide the current list item
+        attachCloseEventListener();
+
+        // Create a new list item when clicking on the "Add" button
+        function newElement() {
+            var li = document.createElement("li");
+            var inputValue1 = document.getElementById("Input1").value;
+            var inputValue2 = document.getElementById("Input2").value;
+            var t = document.createTextNode(inputValue1);
+            var u = document.createTextNode(inputValue2);
+            li.appendChild(t);
+            li.innerHTML += "&emsp;&emsp;&emsp;&emsp;&emsp;"; // Add a line break
+            li.appendChild(u);
+            var span = document.createElement("span");
+            var txt = document.createTextNode("\u00D7");
+            span.className = "close";
+            span.appendChild(txt);
+            li.appendChild(span);
+            if (inputValue1 === '' || inputValue2 === '') {
+                alert("You must write something!");
+            } else {
+                document.getElementById("myUL1").appendChild(li.cloneNode(true));
+            }
+            document.getElementById("Input1").value = "";
+            document.getElementById("Input2").value = "";
+
+            attachCloseEventListener(); // Attach event listener to the new "close" element
+        }
+    </script>
+</body>
+
+</html>

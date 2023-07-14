@@ -1,0 +1,130 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature converter mobile app</title>
+   
+    <style>
+       
+
+header {
+    height: 10vh;
+    background-color: #2f3e46;
+    display: flex;
+    color: #fff;
+    font-family: cursive;
+    font-size: 20px;
+    padding-bottom: 20px;
+    
+}
+.div1{
+    height: 600px;
+    width: 500px;
+    border: 5px solid black;
+    margin-left: 500px;
+}
+input{
+    height: 50px;
+    width: 200px;
+    font-size: 30px;
+}
+select{
+    height: 55px;
+    width: 200px;
+    font-size: 30px;
+
+}
+label{
+  font-size: 50px;
+  color:coral;
+  font-weight: bold;
+
+}
+button{
+    font-size: 50px;
+    background-color: rgb(23, 156, 227);
+    color: aliceblue;
+    border-radius: 10px;
+
+}
+
+    </style>
+</head>
+
+<body >
+<diV >
+
+ 
+<div class="div1" >
+    <header>
+        <h1>Temperature converter</h1>
+               
+        </header>
+        <br>
+        <br>
+        <div style="display: flex;">
+         
+          <div style="padding-left: 20px;">
+            &nbsp; <label >Degrees</label><br>
+            <input type="number" name="degree" id="degree1" />
+          </div>
+          <div  style="padding-left: 20px;">
+            &nbsp;  &nbsp; <label>Type</label><br>
+            <select name="temperatures" id="temptype" autocomplete="on">
+              <option  value="fahrenheit">Fahrenheit</option>
+              <option value="kelvin">Kelvin</option>
+            </select>
+          </div>
+        </div>
+        <div style="margin-left: 150px;" >
+          
+          <br>
+          <br>
+           &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  <label >Result</label><br>
+          <input type="number" placeholder="result" id="celsius" readonly/>
+        
+        </div>
+        <div style="margin-left: 155px; margin-top: 50px;">
+        <button  onclick="clcluate()">Convert</button>
+    </div>
+    </div>
+
+
+
+</diV>
+
+
+</body>
+<script>
+    function clcluate(){
+        
+        var inputValue = document.getElementById('degree1').value;
+       
+        
+        var tempType = document.getElementById('temptype').value;
+        
+
+     
+           if (tempType == "fahrenheit") {
+           const FahrenheitToCelsius = parseInt(inputValue) * (9/5) +32;
+           
+           document.getElementById('celsius').value = FahrenheitToCelsius ;
+        
+            } 
+          if (tempType === "kelvin") {
+           const KelvinToCelsius1 = parseInt(inputValue) + (273.15) ;
+           alert(inputValue)
+           document.getElementById('celsius').value = KelvinToCelsius1;
+        }
+       
+
+
+    }
+  
+
+</script>
+
+</html>

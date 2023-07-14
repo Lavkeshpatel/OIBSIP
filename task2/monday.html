@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+
+        }
+
+        .main {
+            height: 100vh;
+            width: 100%;
+            background: #0160be;
+        }
+
+        .A {
+            display: flex;
+            padding-top: 50px;
+        }
+
+        .A1 {
+            height: 400px;
+            width: 400px;
+            background: #fff;
+            border-radius: 20px;
+            margin-left: 50px;
+        }
+
+        .AA {
+            height: 40px;
+            width: 300px;
+            margin-left: 50px;
+            margin-top: 25px;
+            border-radius: 8px;
+            font-size: 18px;
+        }
+
+        .aa {
+            height: 200px;
+            width: 300px;
+            margin-left: 50px;
+            margin-top: 25px;
+            border-radius: 8px;
+            font-size: 18px;
+            text-align: left;
+
+        }
+
+        .A2 {
+            height: 40px;
+            width: 300px;
+            margin-left: 50px;
+            margin-top: 25px;
+            border-radius: 8px;
+            background: #0160be;
+        }
+
+        .S {
+            height: 400px;
+            width: 1000px;
+            margin-left: 50px;
+            background-color: aqua;
+        }
+
+        .S1 {
+            font-size: 18px;
+            color: #fff;
+        }
+
+        .F {
+            height: 150px;
+            width: 800px;
+            margin-left: 100px;
+            background: #fff;
+            color: black;
+            margin-top: 10px;
+            border-radius: 30px;
+            font-size: 18px;
+            font-family: sans-serif;
+            text-align: left;
+        }
+        .close {
+           position: absolute;
+           right: 150px;
+           top: 50x;
+           font-size: 30px;
+           color: red;
+           font-weight: bold;
+          
+}
+
+    </style>
+</head>
+
+<body>
+    <section class="main">
+        <div class="A">
+            <div class="A1">
+                <form>
+                    <input type="" placeholder="Title" class="AA" id="Input1" required="please fill all " name="u_name"><br><br>
+                    <input type="address" placeholder="Discribtion" id="Input2" required="please fill all " class="aa"><br>
+                    <button class="A2" onclick="newElement()">SAVE</button>
+
+
+
+                </form>
+
+
+            </div>
+
+            <!---------second div---table---->
+            <div class="S">
+
+                <table>
+                    <tr>
+                        <th style="font-size: 25px; color: #fff;"> Tital &nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        </th> &nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <th style="font-size: 25px; color: #fff;"> Discribtion&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        </th>
+                        <th style="font-size: 25px; color: #fff; margin-left: 700px;">&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            Delete</th>
+                    </tr>
+
+                </table><br>
+
+                <hr style="color: #fff;">
+             <br><br> 
+             <div style="display: flex;margin-left: 20px;" >
+                <ol id="myUL1">
+                    <li>title</li>
+                    <li>title next</li>
+                    
+                  </ol>
+                  <ul id="myUL2" style="padding-left: 250px;">
+                    <li>Short Discribtion</li>
+                    <li> Next Short Discribtion</li>
+                    
+                  </ul>
+             </div>  
+
+             
+
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+
+
+</body>
+<script>
+    // function getname() {
+    //     var uname = document.getElementsByName("u_name")[0].value;
+    //     document.getElementsByClassName("SSS")[0].innerHTML = uname;
+    // }
+    // Create a "close" button and append it to each list item
+var myNodelist = document.getElementsByTagName("LI");
+var i;
+for (i = 0; i < myNodelist.length; i++) {
+  var span = document.createElement("SPAN");
+  var txt = document.createTextNode("\u00D7");
+  span.className = "close";
+  span.appendChild(txt);
+  myNodelist[i].appendChild(span);
+}
+
+// Click on a close button to hide the current list item
+var close = document.getElementsByClassName("close");
+var i;
+for (i = 0; i < close.length; i++) {
+  close[i].onclick = function() {
+    var div = this.parentElement;
+    div.style.display = "none";
+  }
+  
+}
+
+// Add a "checked" symbol when clicking on a list item
+var list = document.querySelector('ul');
+list.addEventListener('click', function(ev) {
+  if (ev.target.tagName === 'LI') {
+    ev.target.classList.toggle('checked');
+  }
+}, false);
+
+// Create a new list item when clicking on the "Add" button
+function newElement() {
+  var li = document.createElement("li");
+  var inputValue1 = document.getElementById("Input1").value;
+  var inputValue2 = document.getElementById("Inpu21").value;
+  var t = document.createTextNode(inputValue1);
+  var u = document.createTextNode(inputValue1);
+  li.appendChild(t);
+  li.innerHTML += "<br>"; 
+  li.appendChild(u);
+  if  (inputValue1 === '' || inputValue2 === '') {
+    alert("You must write something!");
+  } else {
+    document.getElementById("myUL1").appendChild(li.cloneNode(true));
+                document.getElementById("myUL2").appendChild(li);
+  }
+  document.getElementById("myInput1").value = "";
+  document.getElementById("myInput2").value = "";
+
+  var span = document.createElement("SPAN");
+  var txt = document.createTextNode("\u00D7");
+  span.className = "close";
+  span.appendChild(txt);
+  li.appendChild(span);
+
+  for (i = 0; i < close.length; i++) {
+    close[i].onclick = function() {
+      var div = this.parentElement;
+      div.style.display = "none";
+    }
+  }
+}
+</script>
+
+</html>
